@@ -1,0 +1,27 @@
+[2024-09-22T01:17:21.958+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_eval.BestModel manual__2024-09-22T01:17:13.784360+00:00 [queued]>
+[2024-09-22T01:17:21.981+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_eval.BestModel manual__2024-09-22T01:17:13.784360+00:00 [queued]>
+[2024-09-22T01:17:21.982+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-09-22T01:17:22.015+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): BestModel> on 2024-09-22 01:17:13.784360+00:00
+[2024-09-22T01:17:22.031+0000] {standard_task_runner.py:60} INFO - Started process 5253 to run task
+[2024-09-22T01:17:22.040+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_eval', 'BestModel', 'manual__2024-09-22T01:17:13.784360+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp_6g1ws6i']
+[2024-09-22T01:17:22.041+0000] {standard_task_runner.py:88} INFO - Job 105: Subtask BestModel
+[2024-09-22T01:17:22.084+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2024-09-22T01:17:22.212+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_eval.BestModel manual__2024-09-22T01:17:13.784360+00:00 [running]> on host cc45b92b61e2
+[2024-09-22T01:17:22.571+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_eval' AIRFLOW_CTX_TASK_ID='BestModel' AIRFLOW_CTX_EXECUTION_DATE='2024-09-22T01:17:13.784360+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-22T01:17:13.784360+00:00'
+[2024-09-22T01:17:22.575+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/main.py", line 146, in bestModel
+    print(f"dddddddddddddddddddddd{group_4.score_lr}")
+AttributeError: 'TaskGroup' object has no attribute 'score_lr'
+[2024-09-22T01:17:22.591+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=dag_eval, task_id=BestModel, execution_date=20240922T011713, start_date=20240922T011721, end_date=20240922T011722
+[2024-09-22T01:17:22.645+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 105 for task BestModel ('TaskGroup' object has no attribute 'score_lr'; 5253)
+[2024-09-22T01:17:22.676+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-22T01:17:22.705+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

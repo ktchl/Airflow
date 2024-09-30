@@ -1,0 +1,28 @@
+[2024-09-22T01:37:46.416+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_eval.BestModel manual__2024-09-22T01:37:34.899478+00:00 [queued]>
+[2024-09-22T01:37:46.434+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_eval.BestModel manual__2024-09-22T01:37:34.899478+00:00 [queued]>
+[2024-09-22T01:37:46.435+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-09-22T01:37:46.455+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): BestModel> on 2024-09-22 01:37:34.899478+00:00
+[2024-09-22T01:37:46.467+0000] {standard_task_runner.py:60} INFO - Started process 6353 to run task
+[2024-09-22T01:37:46.471+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_eval', 'BestModel', 'manual__2024-09-22T01:37:34.899478+00:00', '--job-id', '178', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpoy9qfze_']
+[2024-09-22T01:37:46.472+0000] {standard_task_runner.py:88} INFO - Job 178: Subtask BestModel
+[2024-09-22T01:37:46.489+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2024-09-22T01:37:46.553+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_eval.BestModel manual__2024-09-22T01:37:34.899478+00:00 [running]> on host cc45b92b61e2
+[2024-09-22T01:37:46.682+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_eval' AIRFLOW_CTX_TASK_ID='BestModel' AIRFLOW_CTX_EXECUTION_DATE='2024-09-22T01:37:34.899478+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-22T01:37:34.899478+00:00'
+[2024-09-22T01:37:46.717+0000] {logging_mixin.py:188} INFO - Scores: LR: -0.19309725442505032, DT: None, RF: None
+[2024-09-22T01:37:46.718+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/main.py", line 159, in bestModel
+    if score_lr < score_dt and score_lr < score_rf:
+TypeError: '<' not supported between instances of 'float' and 'NoneType'
+[2024-09-22T01:37:46.736+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=dag_eval, task_id=BestModel, execution_date=20240922T013734, start_date=20240922T013746, end_date=20240922T013746
+[2024-09-22T01:37:46.754+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 178 for task BestModel ('<' not supported between instances of 'float' and 'NoneType'; 6353)
+[2024-09-22T01:37:46.809+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-22T01:37:46.839+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

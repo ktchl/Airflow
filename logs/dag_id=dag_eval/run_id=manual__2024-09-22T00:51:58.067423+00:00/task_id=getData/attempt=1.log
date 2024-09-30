@@ -1,0 +1,16 @@
+[2024-09-22T00:52:03.308+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_eval.getData manual__2024-09-22T00:51:58.067423+00:00 [queued]>
+[2024-09-22T00:52:03.333+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_eval.getData manual__2024-09-22T00:51:58.067423+00:00 [queued]>
+[2024-09-22T00:52:03.334+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-09-22T00:52:03.370+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): getData> on 2024-09-22 00:51:58.067423+00:00
+[2024-09-22T00:52:03.411+0000] {standard_task_runner.py:60} INFO - Started process 4210 to run task
+[2024-09-22T00:52:03.418+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_eval', 'getData', 'manual__2024-09-22T00:51:58.067423+00:00', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp2mxr8c5l']
+[2024-09-22T00:52:03.425+0000] {standard_task_runner.py:88} INFO - Job 71: Subtask getData
+[2024-09-22T00:52:03.462+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2024-09-22T00:52:03.550+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_eval.getData manual__2024-09-22T00:51:58.067423+00:00 [running]> on host cc45b92b61e2
+[2024-09-22T00:52:03.780+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_eval' AIRFLOW_CTX_TASK_ID='getData' AIRFLOW_CTX_EXECUTION_DATE='2024-09-22T00:51:58.067423+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-22T00:51:58.067423+00:00'
+[2024-09-22T00:52:04.361+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-09-22T00:52:04.383+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_eval, task_id=getData, execution_date=20240922T005158, start_date=20240922T005203, end_date=20240922T005204
+[2024-09-22T00:52:04.440+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-09-22T00:52:04.508+0000] {taskinstance.py:3280} INFO - 2 downstream tasks scheduled from follow-on schedule check

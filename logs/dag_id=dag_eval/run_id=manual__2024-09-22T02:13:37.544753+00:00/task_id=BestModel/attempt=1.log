@@ -1,0 +1,18 @@
+[2024-09-22T02:13:56.186+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_eval.BestModel manual__2024-09-22T02:13:37.544753+00:00 [queued]>
+[2024-09-22T02:13:56.200+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_eval.BestModel manual__2024-09-22T02:13:37.544753+00:00 [queued]>
+[2024-09-22T02:13:56.201+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-09-22T02:13:56.224+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): BestModel> on 2024-09-22 02:13:37.544753+00:00
+[2024-09-22T02:13:56.236+0000] {standard_task_runner.py:60} INFO - Started process 7744 to run task
+[2024-09-22T02:13:56.239+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_eval', 'BestModel', 'manual__2024-09-22T02:13:37.544753+00:00', '--job-id', '206', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpaq4n556f']
+[2024-09-22T02:13:56.241+0000] {standard_task_runner.py:88} INFO - Job 206: Subtask BestModel
+[2024-09-22T02:13:56.259+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2024-09-22T02:13:56.306+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_eval.BestModel manual__2024-09-22T02:13:37.544753+00:00 [running]> on host cc45b92b61e2
+[2024-09-22T02:13:56.409+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_eval' AIRFLOW_CTX_TASK_ID='BestModel' AIRFLOW_CTX_EXECUTION_DATE='2024-09-22T02:13:37.544753+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-22T02:13:37.544753+00:00'
+[2024-09-22T02:13:56.450+0000] {logging_mixin.py:188} INFO - Scores: LR: -0.10701835131831862, DT: -4.035646666666657, RF: -4.402090430963668
+[2024-09-22T02:13:56.702+0000] {logging_mixin.py:188} INFO - RandomForestRegressor() saved at  /app/clean_data/best_model.pickle
+[2024-09-22T02:13:56.787+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-09-22T02:13:56.799+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_eval, task_id=BestModel, execution_date=20240922T021337, start_date=20240922T021356, end_date=20240922T021356
+[2024-09-22T02:13:56.855+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-09-22T02:13:56.880+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
